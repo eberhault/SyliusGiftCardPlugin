@@ -6,6 +6,8 @@ namespace Setono\SyliusGiftCardPlugin\Form\Type;
 
 use Setono\SyliusGiftCardPlugin\Generator\GiftCardCodeGeneratorInterface;
 use Setono\SyliusGiftCardPlugin\Model\GiftCardInterface;
+use Sylius\Bundle\CoreBundle\Doctrine\ORM\CustomerRepository;
+use Sylius\Bundle\ResourceBundle\Form\DataTransformer\ResourceToIdentifierTransformer;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Component\Core\Model\ChannelInterface;
@@ -20,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\ReversedTransformer;
 
 final class GiftCardType extends AbstractResourceType
 {
@@ -30,6 +33,7 @@ final class GiftCardType extends AbstractResourceType
         string $dataClass,
         private readonly RepositoryInterface $currencyRepository,
         private readonly GiftCardCodeGeneratorInterface $giftCardCodeGenerator,
+        private readonly CustomerRepository $customerRepository,
         array $validationGroups = [],
     ) {
         parent::__construct($dataClass, $validationGroups);

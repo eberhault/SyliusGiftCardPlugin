@@ -1,0 +1,13 @@
+{# @var \Setono\SyliusGiftCardPlugin\Model\GiftCardChannelConfigurationInterface[] data #}
+{% for channelConfiguration in data %}
+    <div style="margin: 2px 0;">
+        {# @var \Setono\SyliusGiftCardPlugin\Model\GiftCardChannelConfigurationInterface channelConfiguration #}
+        {% include '@SyliusAdmin/shared/grid/field/channel.html.twig' with {'data': channelConfiguration.channel} %}
+
+        {% if channelConfiguration.locale is not null %}
+            <span class="badge bg-secondary text-dark">
+                {{ channelConfiguration.locale.code }}
+            </span>
+        {% endif %}
+    </div>
+{% endfor %}

@@ -1,0 +1,5 @@
+{% extends '@SyliusAdmin/shared/layout/base.html.twig' %}
+
+{% block body %}
+    {% hook ['setono_sylius_gift_card.gift_card_balance.index', 'sylius_admin.common.index'] %}
+{% endblock %}

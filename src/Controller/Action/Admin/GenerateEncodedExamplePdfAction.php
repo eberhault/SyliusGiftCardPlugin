@@ -14,9 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Webmozart\Assert\Assert;
 
-final class GenerateEncodedExamplePdfAction
+final readonly class GenerateEncodedExamplePdfAction
 {
-    public function __construct(private readonly GiftCardFactoryInterface $giftCardFactory, private readonly GiftCardConfigurationRepositoryInterface $giftCardConfigurationRepository, private readonly PdfRendererInterface $pdfRenderer, private readonly FormFactoryInterface $formFactory)
+    public function __construct(
+        private GiftCardFactoryInterface $giftCardFactory,
+        private GiftCardConfigurationRepositoryInterface $giftCardConfigurationRepository,
+        private PdfRendererInterface $pdfRenderer,
+        private FormFactoryInterface $formFactory,
+    )
     {
     }
 

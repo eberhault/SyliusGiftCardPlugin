@@ -6,10 +6,11 @@ namespace Setono\SyliusGiftCardPlugin\Menu;
 
 use Knp\Menu\ItemInterface;
 use Sylius\Bundle\UiBundle\Menu\Event\MenuBuilderEvent;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
 final class AdminMenuListener
 {
-    public function addAdminMenuItems(MenuBuilderEvent $event): void
+    public function __invoke(MenuBuilderEvent $event): void
     {
         $menu = $event->getMenu();
 

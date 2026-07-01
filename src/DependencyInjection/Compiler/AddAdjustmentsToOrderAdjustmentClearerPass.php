@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
 
 final class AddAdjustmentsToOrderAdjustmentClearerPass implements CompilerPassInterface
 {
-    private const ADJUSTMENT_CLEARING_TYPES = 'sylius.order_processing.adjustment_clearing_types';
+    private const string ADJUSTMENT_CLEARING_TYPES = 'sylius.order_processing.adjustment_clearing_types';
 
     public function process(ContainerBuilder $container): void
     {

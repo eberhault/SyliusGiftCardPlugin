@@ -10,10 +10,16 @@ use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class SetonoSyliusGiftCardPlugin extends AbstractResourceBundle
 {
     use SyliusPluginTrait;
+
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
 
     public function build(ContainerBuilder $container): void
     {
@@ -23,10 +29,20 @@ final class SetonoSyliusGiftCardPlugin extends AbstractResourceBundle
         $container->addCompilerPass(new CreateServiceAliasesPass());
     }
 
+    /** @return list<string> */
     public function getSupportedDrivers(): array
     {
         return [
             SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
         ];
+    }
+
+    protected function getConfigFilesPath(): string
+    {
+        return sprintf(
+            '%s/config/doctrine/%s',
+            $this->getPath(),
+            strtolower($this->getDoctrineMappingDirectory()),
+        );
     }
 }

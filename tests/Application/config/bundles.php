@@ -122,4 +122,5 @@ return [
     SyliusCalendarBundle::class => ['all' => true],
     SetonoSyliusGiftCardPlugin::class => ['all' => true],
     SyliusGridBundle::class => ['all' => true],
+    Sylius\TwigHooksBundle\SyliusTwigHooksBundle::class => ['all' => true],
 ];

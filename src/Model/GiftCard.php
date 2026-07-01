@@ -212,7 +212,7 @@ class GiftCard implements GiftCardInterface
     }
 
     /**
-     * API specific methods. See src/Resources/config/serializer/Model.GiftCard.yml
+     * API specific methods. See config/serializer/Model.GiftCard.yml
      */
     public function getCustomerIdentification(): ?array
     {

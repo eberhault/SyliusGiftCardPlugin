@@ -1,0 +1,7 @@
+{% from '@SyliusAdmin/shared/helper/breadcrumbs.html.twig' import breadcrumbs %}
+
+{{ breadcrumbs([
+    { name: 'sylius.ui.dashboard', url: path('sylius_admin_dashboard'), active: false },
+    { name: 'setono_sylius_gift_card.ui.gift_cards', url: path('setono_sylius_gift_card_admin_gift_card_index'), active: false },
+    { name: 'setono_sylius_gift_card.ui.balance', active: false }
+]) }}

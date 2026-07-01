@@ -25,7 +25,7 @@ final class GiftCardBalanceAction
             $this->giftCardRepository->findEnabled(),
         );
 
-        return new Response($this->twig->render('@SetonoSyliusGiftCardPlugin/Admin/giftCardBalance.html.twig', [
+        return new Response($this->twig->render('@SetonoSyliusGiftCardPlugin/admin/gift_card_balance/index.html.twig', [
             'giftCardBalanceCollection' => $giftCardBalanceCollection,
         ]));
     }

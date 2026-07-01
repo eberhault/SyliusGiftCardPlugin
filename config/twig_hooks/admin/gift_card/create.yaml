@@ -1,0 +1,24 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.gift_card.create.content.form.sections':
+            general:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general.html.twig'
+        
+        'sylius_admin.gift_card.create.content.form.sections.general.left':
+            code:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general/left/code.html.twig'
+            enabled:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general/left/enabled.html.twig'
+            expiresAt:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general/left/expires_at.html.twig'
+            customer:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general/left/customer.html.twig'
+        
+        'sylius_admin.gift_card.create.content.form.sections.general.right':
+            currencyCode:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general/right/currency_code.html.twig'
+            amount:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general/right/amount.html.twig'
+            customMessage:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card/content/form/sections/general/right/custom_message.html.twig'
+                    

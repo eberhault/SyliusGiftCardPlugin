@@ -1,5 +1,5 @@
 {# @var \Sylius\Component\Core\Model\OrderItemInterface item #}
-{% import "@SyliusAdmin/Common/Macro/money.html.twig" as money %}
+{% import '@SyliusAdmin/shared/helper/money.html.twig' as money %}
 
 {% set orderPromotionAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::ORDER_PROMOTION_ADJUSTMENT') %}
 {% set unitPromotionAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::ORDER_UNIT_PROMOTION_ADJUSTMENT') %}

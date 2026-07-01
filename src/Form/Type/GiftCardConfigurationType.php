@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\UX\LiveComponent\Form\Type\LiveCollectionType;
 
 final class GiftCardConfigurationType extends AbstractResourceType
 {
@@ -49,13 +50,22 @@ final class GiftCardConfigurationType extends AbstractResourceType
             'required' => false,
             'remove_type' => true,
         ]);
-        $builder->add('channelConfigurations', CollectionType::class, [
+        $builder->add('channelConfigurations', LiveCollectionType::class, [
             'required' => false,
             'label' => 'setono_sylius_gift_card.form.gift_card_configuration.channel_configurations',
             'entry_type' => GiftCardChannelConfigurationType::class,
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false,
+            'button_delete_options' => [
+                'label' => 'sylius.ui.delete',
+                'attr' => [
+                    'class' => 'btn btn-danger',
+                ],
+            ],
+            'button_add_options' => [
+                'label' => 'sylius.ui.add',
+            ],
         ]);
         $builder->add('defaultValidityPeriod', DatePeriodType::class, [
             'label' => 'setono_sylius_gift_card.form.gift_card_configuration.default_validity_period',

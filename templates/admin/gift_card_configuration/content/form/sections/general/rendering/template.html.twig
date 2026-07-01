@@ -1,0 +1,22 @@
+{% set form = hookable_metadata.context.form %}
+{% set resource = hookable_metadata.context.resource %}
+<div class="row">
+    <div class="col-12 col-md-6">
+        {{ form_row(form.template) }}
+        {% if resource.id is not null %}
+            <button class="btn btn-primary js-ssgc-apply-pdf-changes"
+                    data-url="{{ path('setono_sylius_gift_card_admin_ajax_generate_pdf', {'id': resource.id}) }}">
+                <twig:ux:icon name="bi:check" />
+                {{ 'setono_sylius_gift_card.ui.update_preview'|trans }}
+            </button>
+        {% endif %}
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="js-ssgc-live-render-container" style="height: 900px;">
+            <embed id="js-ssgc-live-render-box"
+                   src="data:application/pdf;base64,{{ ssgc_get_base64_encoded_example_pdf_content(resource, true) }}"
+                   style="width: 100%;height: 100%;"
+            />
+        </div>
+    </div>
+</div>

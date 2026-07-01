@@ -1,0 +1,19 @@
+sylius_twig_hooks:
+    hooks:
+        'setono_sylius_gift_card.gift_card_balance.index.content.header':
+            breadcrumbs:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_balance/index/content/header/breadcrumbs.html.twig'
+        
+        'setono_sylius_gift_card.gift_card_balance.index.content.header.title_block':
+            title:
+                template: '@SyliusAdmin/shared/crud/common/content/header/title_block/title.html.twig'
+                configuration:
+                    title: 'setono_sylius_gift_card.ui.balance'
+                priority: 100
+        
+        'setono_sylius_gift_card.gift_card_balance.index.content':
+            grid:
+                enabled: false
+            body:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_balance/index/content/body.html.twig'
+    

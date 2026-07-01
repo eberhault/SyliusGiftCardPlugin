@@ -1,0 +1,42 @@
+{% extends '@SyliusAdmin/shared/form_theme.html.twig' %}
+
+{% block collection_widget -%}
+    {% import _self as self %}
+
+    <div
+        {{ stimulus_controller('collection') }}
+        {{ block('widget_container_attributes') }}
+    >
+        <div {{ stimulus_target('collection', 'list') }}>
+            {% for child in form %}
+                {{ self.collection_item(child, allow_delete) }}
+            {% endfor %}
+        </div>
+
+        {% if prototype is defined and allow_add %}
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" {{ stimulus_action('collection', 'add') }}>
+                    <twig:ux:icon name="bi:plus" />
+                    Ajouter une nouvelle page au footer
+                </button>
+            </div>
+            <template {{ stimulus_target('collection', 'prototype') }}>
+                {{ self.collection_item(prototype, allow_delete, prototype.vars.name) }}
+            </template>
+        {% endif %}
+    </div>
+{%- endblock %}
+
+{% macro collection_item(form, allow_delete) %}
+    <div {{ stimulus_target('collection', 'item') }}
+        class="border p-2 rounded d-flex align-items-end gap-2" style="cursor: grab">
+        {{ form_widget(form) }}
+        {% if allow_delete %}
+            <div class="d-flex justify-content-end mb-3">
+                <button type="button" {{ stimulus_action('collection', 'remove') }} class="btn btn-sm btn-danger rounded" style="width: 40px; height: 40px">
+                    <twig:ux:icon name="bi:trash3-fill" />
+                </button>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

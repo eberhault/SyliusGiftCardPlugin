@@ -1,0 +1,55 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.gift_card_configuration.create.content':
+            form:
+                component: 'sylius_admin:gift_card_configuration:form'
+                props:
+                    resource: '@=_context.resource'
+                    form: '@=_context.form'
+                    template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/form.html.twig'
+                configuration:
+                    method: PUT
+                    render_rest: false
+                priority: 0
+        
+        'sylius_admin.gift_card_configuration.create.content.header':
+            breadcrumbs:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/header/breadcrumbs.html.twig'
+        
+        'sylius_admin.gift_card_configuration.create.content.header.title_block':
+            title:
+                template: '@SyliusAdmin/shared/crud/common/content/header/title_block/title.html.twig'
+                configuration:
+                    title: setono_sylius_gift_card.ui.new_gift_card_configuration
+                    subheader: setono_sylius_gift_card.ui.manage_gift_card_configurations
+                priority: 100
+            
+        'sylius_admin.gift_card_configuration.create.content.form.sections':
+            general:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general.html.twig'
+        
+        'sylius_admin.gift_card_configuration.create.content.form.sections.general.left':
+            code:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/left/code.html.twig'
+            default_validity_period:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/left/default_validity_period.html.twig'
+            background_image:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/left/background_image.html.twig'
+            page_size:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/left/page_size.html.twig'
+            orientation:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/left/orientation.html.twig'
+
+        'sylius_admin.gift_card_configuration.create.content.form.sections.general.right':
+            enabled:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/right/enabled.html.twig'
+            default:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/right/default.html.twig'
+            channel_configuration:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/right/channel_configuration.html.twig'
+        
+        'sylius_admin.gift_card_configuration.create.content.form.sections.general.rendering':
+            template:
+                template: '@SetonoSyliusGiftCardPlugin/admin/gift_card_configuration/content/form/sections/general/rendering/template.html.twig'
+                
+            

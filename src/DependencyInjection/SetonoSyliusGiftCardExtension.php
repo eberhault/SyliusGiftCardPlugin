@@ -30,7 +30,9 @@ final class SetonoSyliusGiftCardExtension extends AbstractResourceExtension
          * @psalm-suppress PossiblyNullArgument
          */
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
+        $loader->load('services.xml');
 
         $container->setParameter('setono_sylius_gift_card.code_length', $config['code_length']);
         $container->setParameter(
@@ -60,8 +62,6 @@ final class SetonoSyliusGiftCardExtension extends AbstractResourceExtension
             '@SetonoSyliusGiftCardPlugin/Shop/GiftCard/defaultGiftCardConfiguration.css.twig',
         );
 
-        $this->registerResources('setono_sylius_gift_card', $config['driver'], $config['resources'], $container);
-
-        $loader->load('services.xml');
+        $this->registerResources('setono_sylius_gift_card', 'doctrine/orm', $config['resources'], $container);
     }
 }
